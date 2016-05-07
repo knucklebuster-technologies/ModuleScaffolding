@@ -1,14 +1,36 @@
-#
-# New-ModuleScaffolding.ps1
-#
+
+
+<#
+.Synopsis
+   Short description
+.DESCRIPTION
+   Long description
+.EXAMPLE
+   Example of how to use this cmdlet
+.EXAMPLE
+   Another example of how to use this cmdlet
+.INPUTS
+   Inputs to this cmdlet (if any)
+.OUTPUTS
+   Output from this cmdlet (if any)
+.NOTES
+   General notes
+.COMPONENT
+   The component this cmdlet belongs to
+.ROLE
+   The role this cmdlet belongs to
+.FUNCTIONALITY
+   The functionality that best describes this cmdlet
+#> 
 function New-ModuleScaffolding {
 	[CmdletBinding()]
 	Param (
 		[Parameter(Mandatory)]
 		[String]
 		$ModuleName,
-		[String]
-		$Path = $(Get-Location).Path
+        [Parameter(Mandatory)]
+		[System.IO.DirectoryInfo]
+		$Path
 	)
 
 	# calculate modules full path name
@@ -21,6 +43,11 @@ function New-ModuleScaffolding {
 	Set-FolderScaffolding -Path $Path
     Set-BinariesScaffolding -Path $Path
 	Set-HelpScaffolding -Path $Path
+    Set-FunctionsScaffolding -Path $Path
+    Set-ModulesScaffolding -Path $Path
+    Set-ResourcesScaffolding -Path $Path
+    Set-TestsScaffolding -Path $Path
+    Set-TypesScaffolding -Path $Path
 
 	# copy psm1 file if one does not exist
 	$PSM1 = Join-Path -Path $Path -ChildPath "$ModuleName.psm1"

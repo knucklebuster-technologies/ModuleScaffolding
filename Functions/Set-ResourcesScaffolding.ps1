@@ -1,4 +1,5 @@
 ﻿
+
  <#
 .Synopsis
    Short description
@@ -21,18 +22,15 @@
 .FUNCTIONALITY
    The functionality that best describes this cmdlet
 #> 
-function Set-HelpScaffolding {
+function Set-ResourcesScaffolding {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory)]
         [System.IO.DirectoryInfo]
-        $Path
+        $Path 
     )
 
-    $ModuleName = Split-Path -Path $Path -Leaf
-    $Path = Join-Path -Path $Path -ChildPath 'en-US'
+    $Path = Join-Path -Path $Path -ChildPath 'Resources'
     Set-FolderScaffolding -Path $Path
-    New-Item -ItemType File -Path $( Join-Path -Path $Path -ChildPath $( 'about_' + "$ModuleName" + '_walkthru.help.txt' )) | Out-Null
-    New-Item -ItemType File -Path $( Join-Path -Path $Path -ChildPath 'HELP FILES FOR THE MODULE' ) | Out-Null
+    New-Item -ItemType File -Path $( Join-Path -Path $Path -ChildPath 'MISC FILES USED BY MODULE' ) | Out-Null
 }
-

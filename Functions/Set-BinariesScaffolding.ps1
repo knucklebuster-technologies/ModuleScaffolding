@@ -25,7 +25,7 @@ function Set-BinariesScaffolding {
 	[CmdletBinding()]
 	Param (
 		[Parameter(Mandatory)]
-		[String]
+		[System.IO.DirectoryInfo]
 		$Path
 	)
     

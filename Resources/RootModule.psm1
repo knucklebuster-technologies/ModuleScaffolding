@@ -1,10 +1,10 @@
 $RootPath = $PSScriptRoot
 
-Get-ChildItem -Path "$RootPath\Modules" -Filter "*ps1" | ForEach-Object {
+Get-ChildItem -Path "$RootPath\Modules" -Filter "*psm1" | ForEach-Object {
 	Import-Module $($PSItem.FullName) -Force
 }
 
-Get-ChildItem -Path "$RootPath\Functions" -Filter "*psm1" | ForEach-Object {
+Get-ChildItem -Path "$RootPath\Functions" -Filter "*ps1" | ForEach-Object {
 	. $($PSItem.FullName)
 }
 

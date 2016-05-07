@@ -25,7 +25,7 @@ function Set-FolderScaffolding {
     [CmdletBinding()]
     Param (
         [Parameter(Mandatory)]
-        [String]
+        [System.IO.DirectoryInfo]
         $Path
     )
 
