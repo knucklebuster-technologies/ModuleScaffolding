@@ -17,11 +17,11 @@ function New-ModuleScaffolding {
 		$Path = Join-Path -Path $Path -ChildPath $ModuleName
 	}
 
-	# create modules folder if it does not exist
-	if (-not (Test-Path -Path $Path)) {
-		New-Item -Path $Path -ItemType Directory | Out-Null 
-	}
-	
+	# create Module Folder Tree
+	Set-FolderScaffolding -Path $Path
+    Set-BinariesScaffolding -Path $Path
+	Set-HelpScaffolding -Path $Path
+
 	# copy psm1 file if one does not exist
 	$PSM1 = Join-Path -Path $Path -ChildPath "$ModuleName.psm1"
 	if(-not (Test-Path -Path $PSM1)) {
