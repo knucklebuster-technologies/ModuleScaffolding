@@ -2,25 +2,22 @@
 
 <#
 .Synopsis
-   Short description
+   Creates a directory structure for a powershell module
 .DESCRIPTION
-   Long description
+    Creates a directory structure for a powershell module. It also includes the psd1 and psm1 files along with an simple way to define what is exported and
+	what is kept internal for the module
+.PARAMETER ModuleName
+	The name of the module project you want to create
+.PARAMETER Path
+	The Path of the Directory you wish to create the Module Project Structure
 .EXAMPLE
-   Example of how to use this cmdlet
-.EXAMPLE
-   Another example of how to use this cmdlet
+   New-ModuleScaffolding -ModuleName NewModule -Path C:\ModuleProjects
 .INPUTS
-   Inputs to this cmdlet (if any)
-.OUTPUTS
-   Output from this cmdlet (if any)
+   String and DirectoryInfo Object
 .NOTES
-   General notes
-.COMPONENT
-   The component this cmdlet belongs to
-.ROLE
-   The role this cmdlet belongs to
+   Does not overwrite any existing directories
 .FUNCTIONALITY
-   The functionality that best describes this cmdlet
+   Creates Directory Structure
 #> 
 function New-ModuleScaffolding {
 	[CmdletBinding()]
